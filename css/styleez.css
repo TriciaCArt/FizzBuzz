@@ -54,8 +54,21 @@ main>.container {
     font-size: 3rem;
 }
 
-.message {
+
+
+@media (min-width: 576px) {}
+
+.fizz {
+    color: red;
     font-weight: bold;
 }
 
-@media (min-width: 576px) {}
+.buzz {
+    color: blue;
+    font-weight: bold;
+}
+
+.fizzbuzz {
+    color: purple;
+    font-weight: bold;
+}

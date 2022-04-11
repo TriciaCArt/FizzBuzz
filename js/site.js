@@ -1,27 +1,60 @@
 // Step One - get -controller accept requrests
-function getMessage() {
-    let msg = document.getElementById("message").value;
-    displayMessage(msg);
+function getValues() {
+    // First get the fizz and buzz values
+    let fizzValue = document.getElementById("fizzValue").value;
+    let buzzValue = document.getElementById("buzzValue").value;
+
+    fizzValue = parseInt(fizzValue);
+    buzzValue = parseInt(buzzValue);
+
+    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
+        let fbvalues = fizzBuzzA(fizzValue, buzzValue);
+        displayValues(fbvalues);
+    } else {
+        alert("You must enter integers!")
+    }
+
 }
 
-// final step - display those values
-function displayMessage(message) {
-    // <li class="list-group-item">A List Item</li>
+// business logic layer - Model
+function fizzBuzzA(fizz, buzz) {
+    let fbvalues = [];
 
-    // let item = `<li class="list-group-item">${message}</li>`;
+    for (let i = 1; i < 101; i++) {
+        if (i % fizz == 0 && i % buzz == 0) {
+            fbvalues.push("FizzBuzz");
+        } else if (i % fizz == 0) {
+            fbvalues.push("fizz");
+        } else if (i % buzz == 0) {
+            fbvalues.push("buzz");
+        } else {
+            fbvalues.push(i);
+        }
 
-    // Frist get the ol element from the page
-    element = document.getElementById("results");
+    }
+    return fbvalues;
+}
 
-    // Next create a new li element
-    let item = document.createElement("li");
-    // add classes to the li element
-    item.classList.add("list-group-item");
-    // set the message for the li element
-    item.innerHTML = message;
+function displayValues(fbvalues) {
+    let element = document.getElementById('results');
+    element.innerHTML = "";
 
-    // add the new item to the list
-    element.appendChild(item);
+    for (let index = 0; index < fbvalues.length; index++) {
 
+        let item = document.createElement("div");
+        item.classList.add("col");
 
+        item.innerHTML = fbvalues[index];
+
+        if (fbvalues[index] == 'fizz') {
+            item.classList.add("fizz");
+        } else if (fbvalues[index] == 'buzz') {
+            item.classList.add('buzz');
+
+        } else if (fbvalues[index] == 'FizzBuzz') {
+            item.classList.add('fizzbuzz');
+        }
+        element.appendChild(item);
+
+    }
 }

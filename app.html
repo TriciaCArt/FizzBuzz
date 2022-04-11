@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App NAME: Coding Challenge By Tricia Chitwood</title>
+    <title>Fizz Buzz: Coding Challenge By Tricia Chitwood</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,8 +28,9 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">
-                <img src="/img/tcwhiteLogo600.png" class="d-inline-block align-text-center me-1" height="50" alt="">
-                APP NAME!!!!</a>
+                <img src="/img/Fizz Buzz-logos_white.png" class="d-inline-block align-text-center me-1" height="50"
+                    alt="">
+                Fizz Buzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -58,22 +59,41 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <h1>To Do List</h1>
-            <div class="row align-items-end">
+            <div class="row">
                 <div class="col">
-                    <label class="form-label" for="message">To Do Item</label>
-                    <input type="text" name="message" id="message" class="form-control" placeholder="Enter a message">
-                </div>
-                <div class="mt-3 col">
-                    <button id="effYou" class="btn btn-primary">Display Me!</button>
+                    <h1>Fizz Buzz</h1>
+                    <p>This is the classic FizzBuzz coding/logic problem.</p>
+                    <h2 class="border-bottom">Instructions</h2>
+                    <p>Enter a starting value and an ending value, and find out which numbers are divisible by 3, by 5,
+                        or
+                        by both!</p>
                 </div>
             </div>
-            <div class="message mt-5">
-                <ol id="results" class="list-group list-group-numbered">
-                    <!-- My items will go here -->
-                </ol>
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="fizzValue">Fizz Value</label>
+                            <input type="text" name="fizzValue" id="fizzValue" value="3" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="buzzValue">BuzzValue</label>
+                            <input type="number" name="buzzValue" id="buzzValue" value="5" class="form-control">
+                        </div>
+                        <div class="col-12 text-end">
+                            <button id="btnSubmit" class="btn btn-primary btn-sm">Do it!</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h2>Results</h2>
+                    <div class="message mt-5">
+                        <div id="results" class="row row-cols-5">
+                            <!-- My items will go here -->
+                            </d>
+                        </div>
+                    </div>
+                </div>
     </main>
     <footer class="footer mt-auto py-3 sticky-footer">
         <div class="container-fluid">
@@ -107,7 +127,7 @@
     </script>
     <script src="/js/site.js"></script>
     <script>
-        document.getElementById("effYou").addEventListener("click", getMessage);
+        document.getElementById("btnSubmit").addEventListener("click", getValues);
     </script>
 </body>
 
