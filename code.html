@@ -47,11 +47,9 @@
                         <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
+                        <a class="nav-link" href="https://github.com/TriciaCArt/FizzBuzz">The Repo</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -59,42 +57,57 @@
 
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">The Code. For app name.</h1>
+            <h1 class="mt-5">The Code. For FizzBuzz.</h1>
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
 // Step One - get -controller accept requrests
-function getMessage() {
-let msg = document.getElementById("message").value;
-displayMessage(msg);
+function getValues() {
+// First get the fizz and buzz values
+let fizzValue = document.getElementById("fizzValue").value;
+let buzzValue = document.getElementById("buzzValue").value;
+
+fizzValue = parseInt(fizzValue);
+buzzValue = parseInt(buzzValue);
+
+if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
+let fbvalues = fizzBuzzA(fizzValue, buzzValue);
+displayValues(fbvalues);
+} else {
+alert("You must enter integers!")
 }
 
-// final step - display those values
-function displayMessage(message) {
-// First get the ol element from the page
-element = document.getElementById("results");
-
-// Next create a new li element
-let item = document.createElement("li");
-// add classes to the li element
-item.classList.add("list-group-item");
-// set the message for the li element
-item.innerHTML = message;
-
-// add the new item to the list
-element.appendChild(item);
 }
+
+// business logic layer - Model
+function fizzBuzzA(fizz, buzz) {
+let fbvalues = [];
+
+for (let i = 1; i < 101; i++) { if (i % fizz==0 && i % buzz==0) { fbvalues.push("FizzBuzz"); } else if (i % fizz==0) {
+    fbvalues.push("fizz"); } else if (i % buzz==0) { fbvalues.push("buzz"); } else { fbvalues.push(i); } } return
+    fbvalues; } function fizzbuzzB(fizz, buzz) { let fbvalues=[]; let isFizz=false; let isBuzz=false; for (let i=1; i <
+    101; i++) { isFizz=(i % fizz==0); isBuzz=(i % buzz==0); switch (true) { case isFizz && isBuzz: {
+    fbvalues.push('FizzBuzz'); break; } case isFizz: { fbvalues.push('Fizz'); break; } case isBuzz: {
+    fbvalues.push('Buzz'); break; } default: { fbvalues.push(i); break; } } } return fbvalues } // ternary function
+    function fizzBuzzC(fizz, buzz) { let fbvalues=[]; for (let i=1; i < 101; i++) { let value=((i % fizz==0 ? 'Fizz'
+    : '' ) + (i % buzz==0 ? 'Buzz' : '' ) || i); fbvalues.push(value); } return fbvalues; } function
+    displayValues(fbvalues) { let element=document.getElementById('results'); element.innerHTML="" ; for (let index=0;
+    index < fbvalues.length; index++) { let item=document.createElement("div"); item.classList.add("col");
+    item.innerHTML=fbvalues[index]; if (fbvalues[index]=='fizz' ) { item.classList.add("fizz"); } else if
+    (fbvalues[index]=='buzz' ) { item.classList.add('buzz'); } else if (fbvalues[index]=='FizzBuzz' ) {
+    item.classList.add('fizzbuzz'); } element.appendChild(item); } }
                         </code>
                     </pre>
 
                 </div>
                 <div class="col-12 col-lg-4">
-                    <p>The code is structured in two functions.</p>
+                    <p>The code is structured in a couple functions.</p>
                     <h5>getMessage</h5>
-                    <p>Gets value from the user</p>
+                    <p>I made the code able to take variables, so that you can find multiples of different numbers.</p>
                     <h5>Display Message</h5>
-                    <p>Displays the Items on the page.</p>
+                    <p>Displays the Items on the page, and formats it. We used a for loop to loop through the array we
+                        created from the numbers listed.</p>
 
                 </div>
             </div>
@@ -104,22 +117,23 @@ element.appendChild(item);
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col order-last order-lg-first d-flex align-items-center justify-content-start">
-                    <span class="sizeMe">&copy2022;</span>
+                    <span class="sizeMe">&copy2022</span>
                     <span class="sizeMe"> Tricia Chitwood | illiannamama@gmail.com</span>
                 </div>
                 <div class="col d-flex aling-items-center justify-content-center justify-content-lg-center">
-                    <img src="/img/tcwhiteLogo600.png" height="100" alt="">
+                    <a href=""><img src="/img/tcwhiteLogo600.png" height="100" alt=""></a>
                 </div>
                 <div class="col d-flex align-items-center justify-content-center justify-content-lg-end">
                     <div class="row">
                         <div class="col socialIcons">
-                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/in/tricia-chitwood-art/"><i
+                                    class="bi bi-linkedin"></i></a>
                         </div>
                         <div class="col socialIcons">
-                            <a href="#"><i class="bi bi-github"></i></a>
+                            <a href="https://github.com/TriciaCArt/FizzBuzz"><i class="bi bi-github"></i></a>
                         </div>
                         <div class="col socialIcons">
-                            <a href="#"><i class="bi bi-twitter"></i></a>
+                            <a href="https://twitter.com/TriciaChitArt"><i class="bi bi-twitter"></i></a>
                         </div>
                     </div>
                 </div>
