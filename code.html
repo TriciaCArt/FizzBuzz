@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App NAME: Coding Challenge By Tricia Chitwood</title>
+    <title>Fizz Buzz : A Coding Challenge By Tricia Chitwood</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,8 +29,9 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">
-                <img src="/img/tcwhiteLogo600.png" class="d-inline-block align-text-center me-1" height="100" alt="">
-                APP NAME!!!!</a>
+                <img src="/img/Fizz Buzz-logos_white.png" class="d-inline-block align-text-center me-1" height="50"
+                    alt="">
+                Fizz Buzz</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,26 +58,24 @@
 
     <main class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">The Code. For FizzBuzz.</h1>
+            <h1 class="mt-5">The Code for FizzBuzz.</h1>
             <div class="row">
                 <div class="col-12 col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-// Step One - get -controller accept requrests
-function getValues() {
 // First get the fizz and buzz values
+function getValues() {
+
 let fizzValue = document.getElementById("fizzValue").value;
 let buzzValue = document.getElementById("buzzValue").value;
 
 fizzValue = parseInt(fizzValue);
 buzzValue = parseInt(buzzValue);
 
-if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
-let fbvalues = fizzBuzzA(fizzValue, buzzValue);
-displayValues(fbvalues);
-} else {
-alert("You must enter integers!")
-}
+if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) 
+{let fbvalues = fizzBuzzA(fizzValue, buzzValue);
+displayValues(fbvalues);}
+ else {alert("You must enter integers!")}
 
 }
 
@@ -84,30 +83,46 @@ alert("You must enter integers!")
 function fizzBuzzA(fizz, buzz) {
 let fbvalues = [];
 
-for (let i = 1; i < 101; i++) { if (i % fizz==0 && i % buzz==0) { fbvalues.push("FizzBuzz"); } else if (i % fizz==0) {
-    fbvalues.push("fizz"); } else if (i % buzz==0) { fbvalues.push("buzz"); } else { fbvalues.push(i); } } return
-    fbvalues; } function fizzbuzzB(fizz, buzz) { let fbvalues=[]; let isFizz=false; let isBuzz=false; for (let i=1; i <
-    101; i++) { isFizz=(i % fizz==0); isBuzz=(i % buzz==0); switch (true) { case isFizz && isBuzz: {
-    fbvalues.push('FizzBuzz'); break; } case isFizz: { fbvalues.push('Fizz'); break; } case isBuzz: {
-    fbvalues.push('Buzz'); break; } default: { fbvalues.push(i); break; } } } return fbvalues } // ternary function
-    function fizzBuzzC(fizz, buzz) { let fbvalues=[]; for (let i=1; i < 101; i++) { let value=((i % fizz==0 ? 'Fizz'
-    : '' ) + (i % buzz==0 ? 'Buzz' : '' ) || i); fbvalues.push(value); } return fbvalues; } function
-    displayValues(fbvalues) { let element=document.getElementById('results'); element.innerHTML="" ; for (let index=0;
-    index < fbvalues.length; index++) { let item=document.createElement("div"); item.classList.add("col");
-    item.innerHTML=fbvalues[index]; if (fbvalues[index]=='fizz' ) { item.classList.add("fizz"); } else if
-    (fbvalues[index]=='buzz' ) { item.classList.add('buzz'); } else if (fbvalues[index]=='FizzBuzz' ) {
-    item.classList.add('fizzbuzz'); } element.appendChild(item); } }
+for (let i = 1; i < 101; i++) { if (i % fizz==0 && i % buzz==0) { fbvalues.push("FizzBuzz"); }
+ else if (i % fizz==0) {fbvalues.push("fizz"); } 
+ else if (i % buzz==0) { fbvalues.push("buzz"); } 
+ else { fbvalues.push(i); } } return fbvalues; } 
+
+function displayValues(fbvalues) {
+let element = document.getElementById('results');
+element.innerHTML = "";
+
+for (let index = 0; index < fbvalues.length; index++)
+ { let item=document.createElement("div");
+    item.classList.add("col"); item.innerHTML=fbvalues[index];
+ if (fbvalues[index]=='fizz' ) {item.classList.add("fizz"); } 
+ else if (fbvalues[index]=='buzz' ) { item.classList.add('buzz'); } 
+ else if (fbvalues[index]=='FizzBuzz' ) { item.classList.add('fizzbuzz'); } element.appendChild(item); }
+ 
+
                         </code>
                     </pre>
 
                 </div>
                 <div class="col-12 col-lg-4">
-                    <p>The code is structured in a couple functions.</p>
-                    <h5>getMessage</h5>
-                    <p>I made the code able to take variables, so that you can find multiples of different numbers.</p>
-                    <h5>Display Message</h5>
-                    <p>Displays the Items on the page, and formats it. We used a for loop to loop through the array we
-                        created from the numbers listed.</p>
+                    <p>This code is a little more complex than The Final Countdown. Using 2 variables, we had to find
+                        the divisible options using code and then display the results with styling. This was
+                        accomplished
+                        using three layers of logic. A function to get the values the user inputed, then the business
+                        logic
+                        layer, and then the function displaying the results.
+                    </p>
+                    <h5>Get the Values</h5>
+                    <p>This funcion, getValues, gets the numbers inputed by the user, and turns it into a form the next
+                        function can work with.</p>
+                    <h5>Business Layer Logic</h5>
+                    <p>This code is the first time I separated out code into a function all on it's own to do the work,
+                        and then call that function
+                        elsewhere to use the values. In this layer, the code takes the values from the funciton above,
+                        and does the math to determine which numbers get highlighted.</p>
+                    <h5>Fizz Buzz Values</h5>
+                    <p>Finally, using these values, we display the results.</p>
+
 
                 </div>
             </div>
@@ -118,10 +133,11 @@ for (let i = 1; i < 101; i++) { if (i % fizz==0 && i % buzz==0) { fbvalues.push(
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col order-last order-lg-first d-flex align-items-center justify-content-start">
                     <span class="sizeMe">&copy2022</span>
-                    <span class="sizeMe"> Tricia Chitwood | illiannamama@gmail.com</span>
+                    <span class="sizeMe"> Tricia Chitwood | TChitwoodCoding@gmail.com</span>
                 </div>
                 <div class="col d-flex aling-items-center justify-content-center justify-content-lg-center">
-                    <a href=""><img src="/img/tcwhiteLogo600.png" height="100" alt=""></a>
+                    <a href="https://triciachitwoodcoding.netlify.app/"><img src="/img/tcwhiteLogo600.png" height="75"
+                            alt=""></a>
                 </div>
                 <div class="col d-flex align-items-center justify-content-center justify-content-lg-end">
                     <div class="row">

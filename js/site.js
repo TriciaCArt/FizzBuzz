@@ -13,7 +13,6 @@ function getValues() {
     } else {
         alert("You must enter integers!")
     }
-
 }
 
 // business logic layer - Model
